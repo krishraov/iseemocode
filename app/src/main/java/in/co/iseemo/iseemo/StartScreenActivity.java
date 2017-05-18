@@ -3,6 +3,7 @@ package in.co.iseemo.iseemo;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -174,7 +175,7 @@ public class StartScreenActivity extends AppCompatActivity {
                     final String urlBase = initURL + partialURL;
 
 
-                    Intent imageIntent = new Intent(this, ImageDisplayActivity.class);
+                    Intent imageIntent = new Intent(this, VideoDisplayActivity.class);
                     startActivity(imageIntent);
 
 

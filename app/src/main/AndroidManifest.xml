@@ -29,7 +29,8 @@
             android:stateNotNeeded="true"
             android:theme="@style/zxing_CaptureTheme"
             android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity android:name=".ImageDisplayActivity"></activity>
+        <activity android:name=".ImageDisplayActivity" />
+        <activity android:name=".VideoDisplayActivity"></activity>
     </application>
 
 </manifest>
