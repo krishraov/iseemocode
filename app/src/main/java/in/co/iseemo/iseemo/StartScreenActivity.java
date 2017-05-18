@@ -1,7 +1,9 @@
 package in.co.iseemo.iseemo;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -137,7 +139,7 @@ public class StartScreenActivity extends AppCompatActivity {
                 // this is not an iSeeMo code OR, the ad has expired.
                 // print a message and stay on the launch screen
                 if (!validCode) {
-                    Toast.makeText(this, "This code has either expired or isn't an iSeeMo code!", Toast.LENGTH_LONG).show();
+                    alertView("Sorry - this code has either expired or it isn't an iSeeMo code.");
                 } else {
 
                     String[] qrArray = qrContent.split(",");
@@ -145,7 +147,7 @@ public class StartScreenActivity extends AppCompatActivity {
                     // What happens if there are fewer/more than 5 sections?
                     //  ... exit and declare that this is an invalid code!
                     if (qrArray.length != 5) {
-                        Toast.makeText(this, "This code has either expired or isn't an iSeeMo code!", Toast.LENGTH_LONG).show();
+                        alertView("Sorry - this code has either expired or it isn't an iSeeMo code.");
                         return;
                     }
 
@@ -170,6 +172,11 @@ public class StartScreenActivity extends AppCompatActivity {
                     partialURL = new StringBuilder(partialURL).reverse().toString();
                     final String initURL = "https://s3.ap-south-1.amazonaws.com/iseemo-testing/";
                     final String urlBase = initURL + partialURL;
+
+
+                    Intent imageIntent = new Intent(this, ImageDisplayActivity.class);
+                    startActivity(imageIntent);
+
 
                     /*
                     switch (mIdInt) {
@@ -224,6 +231,23 @@ public class StartScreenActivity extends AppCompatActivity {
             super.onActivityResult(requestCode, resultCode, data);
 
         }
+
+    }
+
+    /**
+     * Display this dialog in case of an invalid scan
+     *
+     * @param message What we want the alertDialog to display
+     */
+    private void alertView(String message) {
+
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog.setTitle("Invalid QR code")
+                .setMessage(message)
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialoginterface, int i) {
+                    }
+                }).show();
 
     }
 }
