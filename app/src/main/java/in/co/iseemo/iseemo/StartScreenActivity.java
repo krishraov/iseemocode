@@ -15,6 +15,8 @@ import android.widget.Toast;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+import in.co.iseemo.iseemo.fragments.ImageGridFragment;
+
 
 public class StartScreenActivity extends AppCompatActivity {
 
@@ -174,12 +176,6 @@ public class StartScreenActivity extends AppCompatActivity {
                     final String initURL = "https://s3.ap-south-1.amazonaws.com/iseemo-testing/";
                     final String urlBase = initURL + partialURL;
 
-
-                    Intent imageIntent = new Intent(this, VideoDisplayActivity.class);
-                    startActivity(imageIntent);
-
-
-                    /*
                     switch (mIdInt) {
 
                         case 0:
@@ -201,15 +197,17 @@ public class StartScreenActivity extends AppCompatActivity {
                             // This technique uses implicit intents and uses
                             // the inbuilt and user-preferred video player
                             // to playback the video.
+                            /*
                             Uri video = Uri.parse(urlBase + "/video1.mp4");
                             Intent intent = new Intent(Intent.ACTION_VIEW, video);
                             intent.setDataAndType(video, "video/mp4");
                             startActivity(Intent.createChooser(intent, "Watch this video using "));
+                            */
                             break;
 
                         case 3:
                             // website redirect
-                            openWebPage(partialURL);
+                            //openWebPage(partialURL);
                             break;
 
                         case 4:
@@ -222,7 +220,6 @@ public class StartScreenActivity extends AppCompatActivity {
                             break;
 
                     }
-                    */
                 }
             }
 
