@@ -26,6 +26,9 @@ public class StartScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start_screen);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Intent videoIntent = new Intent(this, VideoDisplayActivity.class);
+        startActivity(videoIntent);
     }
 
     @Override
@@ -203,6 +206,9 @@ public class StartScreenActivity extends AppCompatActivity {
                             intent.setDataAndType(video, "video/mp4");
                             startActivity(Intent.createChooser(intent, "Watch this video using "));
                             */
+                            Intent videoIntent = new Intent(this, VideoDisplayActivity.class);
+                            videoIntent.putExtra("BASE_URL", urlBase);
+                            startActivity(videoIntent);
                             break;
 
                         case 3:
