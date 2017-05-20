@@ -128,19 +128,13 @@ public class VideoDisplayActivity extends AppCompatActivity {
     @SuppressLint("InlinedApi")
     private void hideSystemUi() {
 
-        playerView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE
-                | View.SYSTEM_UI_FLAG_FULLSCREEN
-                | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+        playerView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
     }
 
     @SuppressLint("InlinedApi")
     private void showSystemUI() {
-        playerView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        playerView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
     }
 
 
@@ -149,7 +143,7 @@ public class VideoDisplayActivity extends AppCompatActivity {
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         View view = findViewById(R.id.includeContactCard);
-        ConstraintLayout layout = (ConstraintLayout) findViewById(R.id.videoLayout);
+        RelativeLayout layout = (RelativeLayout) findViewById(R.id.videoLayout);
         CardView contactCard = (CardView) view.findViewById(R.id.cardContact);
         // Checks the orientation of the screen
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {

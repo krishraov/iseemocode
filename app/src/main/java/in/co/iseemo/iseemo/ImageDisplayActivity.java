@@ -1,14 +1,10 @@
 package in.co.iseemo.iseemo;
 
 import android.content.res.Configuration;
-import android.graphics.Color;
-import android.support.constraint.ConstraintLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -37,7 +33,7 @@ public class ImageDisplayActivity extends AppCompatActivity {
 
         // set up all the image URLs
         // create dynamic image view and add them to ViewFlipper
-        IMAGES = new String[numImages+1];
+        IMAGES = new String[numImages + 1];
         for (int i = 0; i < IMAGES.length; i++) {
             IMAGES[i] = baseURL + "/image" + (i + 1) + ".jpg";
         }
@@ -78,25 +74,13 @@ public class ImageDisplayActivity extends AppCompatActivity {
 
     // This snippet hides the system bars.
     private void hideSystemUI() {
-        // Set the IMMERSIVE flag.
-        // Set the content to appear under the system bars so that the content
-        // doesn't resize when the system bars hide and show.
-        mDecorView.setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_LOW_PROFILE
-                        | View.SYSTEM_UI_FLAG_FULLSCREEN
-                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+        mDecorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
     }
 
-    // This snippet shows the system bars. It does this by removing all the flags
-// except for the ones that make the content appear under the system bars.
+    // This snippet shows the system bars.
     private void showSystemUI() {
-        mDecorView.setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        mDecorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
     }
 
     @Override
@@ -104,22 +88,40 @@ public class ImageDisplayActivity extends AppCompatActivity {
         super.onConfigurationChanged(newConfig);
 
         mDecorView = getWindow().getDecorView();
-
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         CardView contactCard = null;
         View view = findViewById(R.id.includeContactCard);
+
         if (view != null) {
             contactCard = (CardView) view.findViewById(R.id.cardContact);
         }
 
-        if (contactCard != null) {
-            // Checks the orientation of the screen
-            if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            if (contactCard != null) {
                 contactCard.setVisibility(View.GONE);
+            }
+
+            if (mDecorView != null) {
                 hideSystemUI();
-            } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            }
+
+            if (actionBar != null) {
+                actionBar.hide();
+            }
+        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+
+            if (contactCard != null) {
                 contactCard.setVisibility(View.VISIBLE);
+            }
+
+            if (mDecorView != null) {
                 showSystemUI();
             }
+
+            if (actionBar != null) {
+                actionBar.show();
+            }
         }
+
     }
 }
