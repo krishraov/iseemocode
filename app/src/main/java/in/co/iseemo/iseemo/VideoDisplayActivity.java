@@ -5,6 +5,7 @@ import android.app.ActionBar;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Handler;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,7 +23,13 @@ import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
+import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
+import com.google.android.exoplayer2.upstream.HttpDataSource;
+import com.google.android.exoplayer2.upstream.cache.Cache;
+import com.google.android.exoplayer2.upstream.cache.CacheDataSourceFactory;
+import com.google.android.exoplayer2.upstream.cache.LeastRecentlyUsedCacheEvictor;
+import com.google.android.exoplayer2.upstream.cache.SimpleCache;
 import com.google.android.exoplayer2.util.Util;
 
 public class VideoDisplayActivity extends AppCompatActivity {
@@ -85,7 +92,21 @@ public class VideoDisplayActivity extends AppCompatActivity {
             player.setPlayWhenReady(playWhenReady);
             player.seekTo(currentWindow, playbackPosition);
         }
-        MediaSource mediaSource = buildMediaSource(Uri.parse("http://html5demos.com/assets/dizzy.mp4"));
+        
+        Cache cache = new SimpleCache(this.getCacheDir(),
+                new LeastRecentlyUsedCacheEvictor(1024*1024*10));
+
+        DefaultHttpDataSourceFactory httpDataSourceFactory =
+                new DefaultHttpDataSourceFactory("iSeeMo");
+
+        DataSource.Factory cacheDataSourceFactory =
+                new CacheDataSourceFactory(cache, httpDataSourceFactory, 0);
+
+        Uri uri = Uri.parse("http://html5demos.com/assets/dizzy.mp4");
+
+        MediaSource mediaSource =  new ExtractorMediaSource(uri, cacheDataSourceFactory,
+                new DefaultExtractorsFactory(), null, null);
+
         player.prepare(mediaSource, true, false);
     }
 
@@ -100,7 +121,7 @@ public class VideoDisplayActivity extends AppCompatActivity {
     }
 
     private MediaSource buildMediaSource(Uri uri) {
-        return new ExtractorMediaSource(uri, new DefaultHttpDataSourceFactory("exoplayer-codelab"),
+        return new ExtractorMediaSource(uri, new DefaultHttpDataSourceFactory("iSeeMo"),
                 new DefaultExtractorsFactory(), null, null);
     }
 
