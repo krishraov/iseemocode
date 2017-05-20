@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="in.co.iseemo.iseemo.ImageDisplayActivity">
+    tools:context="in.co.iseemo.iseemo.ImageDisplayActivity"
+    android:background="#DDD">
 
 
     <include layout="@layout/contact_card_screen"
