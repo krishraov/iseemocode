@@ -33,12 +33,10 @@ public class ImageDisplayActivity extends AppCompatActivity {
 
         // set up all the image URLs
         // create dynamic image view and add them to ViewFlipper
-        IMAGES = new String[numImages + 1];
+        IMAGES = new String[numImages];
         for (int i = 0; i < IMAGES.length; i++) {
             IMAGES[i] = baseURL + "/image" + (i + 1) + ".jpg";
         }
-
-        IMAGES[3] = baseURL + "/image" + (1) + ".jpg";
 
         int frIndex = getIntent().getIntExtra(Constants.Extra.FRAGMENT_INDEX, 0);
         Fragment fr;
@@ -89,16 +87,12 @@ public class ImageDisplayActivity extends AppCompatActivity {
 
         mDecorView = getWindow().getDecorView();
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-        CardView contactCard = null;
         View view = findViewById(R.id.includeContactCard);
 
-        if (view != null) {
-            contactCard = (CardView) view.findViewById(R.id.cardContact);
-        }
-
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            if (contactCard != null) {
-                contactCard.setVisibility(View.GONE);
+
+            if ( view != null ) {
+                view.setVisibility(View.GONE);
             }
 
             if (mDecorView != null) {
@@ -108,10 +102,11 @@ public class ImageDisplayActivity extends AppCompatActivity {
             if (actionBar != null) {
                 actionBar.hide();
             }
+
         } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
 
-            if (contactCard != null) {
-                contactCard.setVisibility(View.VISIBLE);
+            if ( view != null ) {
+                view.setVisibility(View.VISIBLE);
             }
 
             if (mDecorView != null) {

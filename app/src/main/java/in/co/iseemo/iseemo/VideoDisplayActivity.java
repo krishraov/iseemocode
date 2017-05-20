@@ -142,21 +142,43 @@ public class VideoDisplayActivity extends AppCompatActivity {
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
+
         View view = findViewById(R.id.includeContactCard);
         RelativeLayout layout = (RelativeLayout) findViewById(R.id.videoLayout);
-        CardView contactCard = (CardView) view.findViewById(R.id.cardContact);
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+
         // Checks the orientation of the screen
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
 
             hideSystemUi();
-            contactCard.setVisibility(View.GONE);
-            layout.setBackgroundColor(Color.parseColor("#000000"));
+
+            if ( view != null ) {
+                view.setVisibility(View.GONE);
+            }
+
+            if (layout != null) {
+                layout.setBackgroundColor(Color.parseColor("#000000"));
+            }
+
+            if (actionBar != null) {
+                actionBar.hide();
+            }
 
         } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
 
             showSystemUI();
-            contactCard.setVisibility(View.VISIBLE);
-            layout.setBackgroundColor(Color.parseColor("#EEEEEE"));
+
+            if ( view != null ) {
+                view.setVisibility(View.VISIBLE);
+            }
+
+            if (layout != null) {
+                layout.setBackgroundColor(Color.parseColor("#DDDDDD"));
+            }
+
+            if (actionBar != null) {
+                actionBar.show();
+            }
 
         }
     }

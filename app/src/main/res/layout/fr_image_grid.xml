@@ -9,23 +9,22 @@
     <GridView
         android:id="@+id/grid"
         android:layout_width="match_parent"
-        android:layout_height="420dp"
-        android:layout_marginStart="8dp"
+        android:layout_height="480dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="#00FFFFFF"
         android:gravity="center"
         android:horizontalSpacing="16dp"
-        android:verticalSpacing="16dp"
         android:numColumns="1"
-        android:stretchMode="columnWidth"/>
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="16dp" />
 
     <include layout="@layout/contact_card_screen"
         android:id="@+id/includeContactCard"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:layout_marginTop="8dp"
-        android:layout_below="@+id/grid"
         android:layout_alignParentBottom="true" />
 
 </RelativeLayout>

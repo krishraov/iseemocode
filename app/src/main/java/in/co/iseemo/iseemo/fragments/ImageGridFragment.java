@@ -38,7 +38,6 @@ import in.co.iseemo.iseemo.R;
 public class ImageGridFragment extends Fragment {
 
     public static final int INDEX = 1;
-    private AbsListView listView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -62,7 +61,7 @@ public class ImageGridFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fr_image_grid, container, false);
-        listView = (GridView) rootView.findViewById(R.id.grid);
+        AbsListView listView = (GridView) rootView.findViewById(R.id.grid);
         listView.setAdapter(new ImageAdapter(getActivity()));
         listView.setOnItemClickListener(new OnItemClickListener() {
             @Override

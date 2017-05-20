@@ -26,6 +26,10 @@ public class StartScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start_screen);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        // for testing -- goes directly to the video activity
+        //Intent videoIntent = new Intent(this, VideoDisplayActivity.class);
+        //startActivity(videoIntent);
     }
 
     @Override
@@ -179,8 +183,6 @@ public class StartScreenActivity extends AppCompatActivity {
                     switch (mIdInt) {
 
                         case 0:
-                            Toast.makeText(this, "Scanned: " + numItemsInt, Toast.LENGTH_LONG).show();
-
                             // image processing
                             // send the URL to the image display activity.
                             Intent imageIntent = new Intent(this, ImageDisplayActivity.class);
