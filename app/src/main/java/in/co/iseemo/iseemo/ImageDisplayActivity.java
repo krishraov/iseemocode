@@ -1,9 +1,14 @@
 package in.co.iseemo.iseemo;
 
+import android.content.res.Configuration;
+import android.graphics.Color;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -30,10 +35,12 @@ public class ImageDisplayActivity extends AppCompatActivity {
 
         // set up all the image URLs
         // create dynamic image view and add them to ViewFlipper
-        IMAGES = new String[numImages];
+        IMAGES = new String[numImages+1];
         for (int i = 0; i < IMAGES.length; i++) {
             IMAGES[i] = baseURL + "/image" + (i + 1) + ".jpg";
         }
+
+        IMAGES[3] = baseURL + "/image" + (1) + ".jpg";
 
         int frIndex = getIntent().getIntExtra(Constants.Extra.FRAGMENT_INDEX, 0);
         Fragment fr;
@@ -65,5 +72,27 @@ public class ImageDisplayActivity extends AppCompatActivity {
     public void onBackPressed() {
         ImageLoader.getInstance().stop();
         super.onBackPressed();
+    }
+
+
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        CardView contactCard = null;
+        View view = findViewById(R.id.includeContactCard);
+        if (view != null) {
+            contactCard = (CardView) view.findViewById(R.id.cardContact);
+        }
+
+        if (contactCard != null) {
+            // Checks the orientation of the screen
+            if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                contactCard.setVisibility(View.GONE);
+            } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+                contactCard.setVisibility(View.VISIBLE);
+            }
+        }
     }
 }
