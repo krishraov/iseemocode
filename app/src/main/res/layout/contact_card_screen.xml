@@ -11,8 +11,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="0.2"
-        android:background="#42a5f5"
-        android:src="@android:drawable/ic_menu_call"
+        android:background="#FF90CAF9"
+        android:src="@drawable/ic_phone"
         android:text="Call"
         android:theme="@style/AppTheme.Button" />
 
@@ -21,8 +21,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="0.2"
-        android:background="#42a5f5"
-        android:src="@android:drawable/ic_dialog_email"
+        android:background="#90caf9"
+        android:src="@drawable/ic_facebook"
         android:theme="@style/AppTheme.Button" />
 
     <ImageButton
@@ -30,8 +30,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="0.2"
-        android:background="#42a5f5"
-        android:src="@android:drawable/btn_star_big_on"
+        android:background="#FF90CAF9"
+        android:src="@drawable/ic_www"
         android:theme="@style/AppTheme.Button" />
 
     <ImageButton
@@ -39,8 +39,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="0.2"
-        android:background="#42a5f5"
-        android:src="@android:drawable/btn_star_big_on"
+        android:background="#FF90CAF9"
+        android:src="@drawable/ic_email"
         android:theme="@style/AppTheme.Button" />
 
     <ImageButton
@@ -48,8 +48,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="0.2"
-        android:background="#42a5f5"
-        android:src="@android:drawable/btn_star_big_on"
+        android:background="#FF90CAF9"
+        android:src="@drawable/ic_favorite"
         android:theme="@style/AppTheme.Button" />
 
 </LinearLayout>

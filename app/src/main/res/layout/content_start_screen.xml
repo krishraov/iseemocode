@@ -16,7 +16,7 @@
         android:layout_width="0dp"
         android:layout_height="495dp"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="9dp">
+        tools:layout_editor_absoluteY="7dp">
 
         <android.support.v7.widget.CardView
             android:id="@+id/cardContact"
@@ -36,9 +36,9 @@
                     android:layout_height="72dp"
                     android:layout_weight="0.5"
                     android:drawableStart="@android:drawable/ic_menu_camera"
+                    android:onClick="openScanner"
                     android:text="@string/scanButton"
-                    android:theme="@style/AppTheme.Button"
-                    android:onClick="openScanner"/>
+                    android:theme="@style/AppTheme.Button" />
 
                 <Button
                     android:id="@+id/button2"
@@ -52,6 +52,19 @@
             </LinearLayout>
 
         </android.support.v7.widget.CardView>
+
+
+
+        <ImageButton
+            android:layout_width="136dp"
+            android:layout_height="96dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/qr_code_scan"
+            android:layout_below="@id/cardContact"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="40dp"/>
+
+
     </RelativeLayout>
 
 
