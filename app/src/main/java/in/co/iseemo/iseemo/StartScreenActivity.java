@@ -2,6 +2,7 @@ package in.co.iseemo.iseemo;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
@@ -214,7 +215,6 @@ public class StartScreenActivity extends AppCompatActivity {
 
                         case 3:
                             // website redirect
-                            //openWebPage(partialURL);
                             break;
 
                         case 4:
@@ -255,4 +255,5 @@ public class StartScreenActivity extends AppCompatActivity {
                 }).show();
 
     }
+
 }

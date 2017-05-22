@@ -1,56 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/db1_root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="vertical"
+    android:background="@color/colorPrimary">
 
-    <ImageButton
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
+    <TextView
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.2"
-        android:background="#FF90CAF9"
-        android:src="@drawable/ic_phone"
-        android:text="Call"
-        android:theme="@style/AppTheme.Button" />
+        android:padding="4sp"
+        android:text="For further details, please contact us."
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:typeface="sans" />
 
-    <ImageButton
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/iconsRow"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.2"
-        android:background="#90caf9"
-        android:src="@drawable/ic_facebook"
-        android:theme="@style/AppTheme.Button" />
+        android:orientation="horizontal">
 
-    <ImageButton
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.2"
-        android:background="#FF90CAF9"
-        android:src="@drawable/ic_www"
-        android:theme="@style/AppTheme.Button" />
+        <ImageButton
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:background="@color/colorPrimary"
+            android:src="@drawable/ic_phone"
+            android:text="Call"
+            android:theme="@style/AppTheme.Button" />
 
-    <ImageButton
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.2"
-        android:background="#FF90CAF9"
-        android:src="@drawable/ic_email"
-        android:theme="@style/AppTheme.Button" />
+        <ImageButton
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:background="@color/colorPrimary"
+            android:src="@drawable/ic_facebook"
+            android:theme="@style/AppTheme.Button" />
 
-    <ImageButton
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.2"
-        android:background="#FF90CAF9"
-        android:src="@drawable/ic_favorite"
-        android:theme="@style/AppTheme.Button" />
+        <ImageButton
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:background="@color/colorPrimary"
+            android:src="@drawable/ic_www"
+            android:theme="@style/AppTheme.Button" />
 
+        <ImageButton
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:background="@color/colorPrimary"
+            android:src="@drawable/ic_email"
+            android:theme="@style/AppTheme.Button" />
+
+        <ImageButton
+            android:id="@+id/button5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:background="@color/colorPrimary"
+            android:src="@drawable/ic_favorite"
+            android:theme="@style/AppTheme.Button" />
+
+    </LinearLayout>
 </LinearLayout>
 

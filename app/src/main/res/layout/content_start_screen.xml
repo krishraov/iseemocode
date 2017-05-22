@@ -8,64 +8,50 @@
     tools:context="in.co.iseemo.iseemo.StartScreenActivity"
     tools:showIn="@layout/activity_start_screen"
     tools:layout_editor_absoluteY="81dp"
-    tools:layout_editor_absoluteX="0dp">
+    tools:layout_editor_absoluteX="0dp"
+    android:background="@color/backGroundColor">
 
 
     <RelativeLayout
         android:id="@+id/db1_root"
-        android:layout_width="0dp"
+        android:layout_width="344dp"
         android:layout_height="495dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="7dp">
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
 
-        <android.support.v7.widget.CardView
-            android:id="@+id/cardContact"
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true">
-
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="8dp"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/button1"
-                    android:layout_width="0dp"
-                    android:layout_height="72dp"
-                    android:layout_weight="0.5"
-                    android:drawableStart="@android:drawable/ic_menu_camera"
-                    android:onClick="openScanner"
-                    android:text="@string/scanButton"
-                    android:theme="@style/AppTheme.Button" />
-
-                <Button
-                    android:id="@+id/button2"
-                    android:layout_width="0dp"
-                    android:layout_height="72dp"
-                    android:layout_weight="0.5"
-                    android:text="@string/favoritesButton"
-                    android:theme="@style/AppTheme.Button" />
-
-
-            </LinearLayout>
-
-        </android.support.v7.widget.CardView>
-
+            android:layout_above="@+id/angry_btn"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="28dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:text="Click to scan the QR code"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
 
 
         <ImageButton
-            android:layout_width="136dp"
-            android:layout_height="96dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/qr_code_scan"
-            android:layout_below="@id/cardContact"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="40dp"/>
-
+            android:onClick="openScanner"
+            android:id="@+id/angry_btn"
+            android:src="@drawable/qr_scan_white"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:background="@drawable/button_shape"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"/>
 
     </RelativeLayout>
+
 
 
 </android.support.constraint.ConstraintLayout>

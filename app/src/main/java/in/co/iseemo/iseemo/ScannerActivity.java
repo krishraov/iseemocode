@@ -15,9 +15,11 @@ public class ScannerActivity extends CaptureActivity {
         setContentView(R.layout.activity_scanner);
 
         TextView textView = (TextView) findViewById(R.id.zxing_status_view);
-        if (textView!= null)
+        if (textView != null) {
             textView.setText("");
+            textView.setTextSize(14);
+        }
 
-        return (DecoratedBarcodeView)findViewById(R.id.zxing_barcode_scanner);
+        return (DecoratedBarcodeView) findViewById(R.id.zxing_barcode_scanner);
     }
 }
