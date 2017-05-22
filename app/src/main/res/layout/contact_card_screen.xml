@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/db1_root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
 
     <TextView
-        android:background="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="4sp"
+        android:background="@color/colorPrimary"
+        android:padding="8dp"
         android:text="For further details, please contact us."
+        android:textColor="@color/White"
         android:textSize="14sp"
         android:textStyle="bold"
         android:typeface="sans" />
@@ -31,7 +31,6 @@
             android:layout_weight="0.2"
             android:background="@color/colorPrimary"
             android:src="@drawable/ic_phone"
-            android:text="Call"
             android:theme="@style/AppTheme.Button" />
 
         <ImageButton
