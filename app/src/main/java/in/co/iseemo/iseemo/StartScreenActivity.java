@@ -4,7 +4,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -199,15 +198,6 @@ public class StartScreenActivity extends AppCompatActivity {
 
                         case 2:
                             // video processing
-                            // This technique uses implicit intents and uses
-                            // the inbuilt and user-preferred video player
-                            // to playback the video.
-                            /*
-                            Uri video = Uri.parse(urlBase + "/video1.mp4");
-                            Intent intent = new Intent(Intent.ACTION_VIEW, video);
-                            intent.setDataAndType(video, "video/mp4");
-                            startActivity(Intent.createChooser(intent, "Watch this video using "));
-                            */
                             Intent videoIntent = new Intent(this, VideoDisplayActivity.class);
                             videoIntent.putExtra("BASE_URL", urlBase);
                             startActivity(videoIntent);
@@ -215,6 +205,7 @@ public class StartScreenActivity extends AppCompatActivity {
 
                         case 3:
                             // website redirect
+                            openWebPage(partialURL);
                             break;
 
                         case 4:
@@ -256,4 +247,22 @@ public class StartScreenActivity extends AppCompatActivity {
 
     }
 
+
+    /**
+     * Open a web page with a specified URL. This is done using
+     * implicit intents.
+     *
+     * @param partialURL URL to open
+     */
+    private void openWebPage(String partialURL) {
+
+        final String url = "http://bit.ly/" + partialURL;
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        } else {
+            // what do we do here??
+        }
+    }
 }
